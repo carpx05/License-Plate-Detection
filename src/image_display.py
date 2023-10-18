@@ -12,5 +12,5 @@ def display(img, title=''):
     plt.title(title)
     plt.show()
 
-img = cv2.imread('F:/LPR/NumberPlate.jpg')
+img = cv2.imread('E:/LPR/NumberPlate.jpg')
 display(img, 'input image')

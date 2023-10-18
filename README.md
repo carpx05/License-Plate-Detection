@@ -9,7 +9,6 @@ This GitHub repository contains code for a License Plate Detection system using 
 - [Installation](#installation)
 - [Usage](#usage)
 - [Results](#results)
-- [License](#license)
 
 ## Getting Started
 
@@ -42,7 +41,7 @@ pip install tensorflow opencv-python numpy matplotlib
 
 ## Usage
 
-1. Place your license plate images in the appropriate directories. Images for training should be placed in `F:/LPR/Train_Character/train`, and validation images should be placed in `F:/LPR/Train_Character/val`.
+1. Place your license plate images in the appropriate directories. Images for training should be placed in `E:/LPR/Train_Character/train`, and validation images should be placed in `E:/LPR/Train_Character/val`.
 
 2. To train the model, run the provided code by executing the script `train_model.py`. The model will be trained to recognize characters on license plates.
 
@@ -53,7 +52,7 @@ python train_model.py
 3. To recognize license plates in an image, run the script `recognize_license_plate.py`. This script loads the trained model, detects license plates, segments characters, and predicts the license plate number.
 
 ```bash
-python recognize_license_plate.py
+python main.py
 ```
 
 4. The recognized license plate number will be displayed and saved as an output image.
@@ -67,8 +66,7 @@ The License Plate Detection system provides the following results:
 - Prediction of the characters to recognize the license plate number.
 - Display of the recognized license plate and saving it as an output image.
 
-## License
+![Input Image](input_image.png)
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+![Output Image](output_image.png)
 
-Feel free to contribute, report issues, or make improvements to this License Plate Detection system.

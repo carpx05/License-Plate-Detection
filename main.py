@@ -6,13 +6,14 @@ from src.character_segmentation import segment_characters
 from Model.model import model
 
 # Load the input image
-img = cv2.imread('F:/LPR/NumberPlate.jpg')
+img = cv2.imread('E:/LPR/NumberPlate.jpg')
 
 # Display the input image
 display(img, 'Input Image')
 
+print("done...")
 # Getting plate from the processed image
-output_img, plate = detect_plate(img)
+output_img, plate = detect_plate(img) #may be an error, check no of input parameters
 
 # Display the detected license plate in the input image
 display(output_img, 'Detected License Plate in the Input Image')
@@ -42,6 +43,6 @@ predicted_plate_str = ''.join(predicted_plate)
 display(plate, 'Predicted License Plate: ' + predicted_plate_str)
 
 # Save the final output image with the predicted license plate
-cv2.imwrite('F:/LPR/Output/output_license_plate.jpg', plate)
+cv2.imwrite('E:/LPR/Output/output_license_plate.jpg', plate)
 
 print('Predicted License Plate:', predicted_plate_str)

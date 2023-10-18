@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
 
-plate_cascade = cv2.CascadeClassifier('F:\LPR\indian_license_plate.xml')
+
+
 
 def detect_plate(img, text=''):
-    # Your existing code for license plate detection goes here.
-    # Make sure to encapsulate it within a function, such as `detect_plate`.
+    plate_cascade = cv2.CascadeClassifier('E:\LPR\indian_license_plate.xml')
     plate_img = img.copy()
     roi = img.copy()
     plate_rect = plate_cascade.detectMultiScale(plate_img, scaleFactor = 1.3, minNeighbors = 7) # detects numberplates and returns the coordinates and dimensions of detected license plate's contours.

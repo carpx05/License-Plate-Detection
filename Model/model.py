@@ -12,10 +12,12 @@ from tensorflow.keras.optimizers import Adam
 import tensorflow.keras.backend as K
 from src.plate_detection import detect_plate
 from src.image_display import display
+from src.character_segmentation import segment_characters
+# from src.plate_detection import plate_img
 
 
 train_datagen = ImageDataGenerator(rescale=1./255, width_shift_range=0.1, height_shift_range=0.1)
-path = "F:/LPR/Train_Character"
+path = "E:/LPR/Train_Character"
 train_generator = train_datagen.flow_from_directory(
         path+'/train',  # this is the target directory
         target_size=(28,28),  # all images will be resized to 28x28
@@ -69,13 +71,20 @@ model.fit(
     validation_data=validation_generator, 
     epochs=80, verbose=1, callbacks=callbacks)
 
+img = cv2.imread('E:/LPR/NumberPlate.jpg')
+output_img, plate = detect_plate(img)
+char = segment_characters(plate)
+
 # Predicting the output
 def fix_dimension(img): 
   new_img = np.zeros((28,28,3))
   for i in range(3):
     new_img[:,:,i] = img
   return new_img
-  
+
+
+
+
 def show_results():
     dic = {}
     characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -111,6 +120,6 @@ plt.show()
 
 plate_number = show_results()
 print(plate_number)
-plate_img = cv2.convertScaleAbs(plate_img)
+# plate_img = cv2.convertScaleAbs(plate_img)
 output_img, plate = detect_plate(img, plate_number)
 display(output_img, 'detected license plate number in the input image')

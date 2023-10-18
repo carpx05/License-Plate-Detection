@@ -61,7 +61,7 @@ def find_contours(dimensions, img):
         img_res_copy.append(img_res[idx])# stores character images according to their index
     img_res = np.array(img_res_copy)
 
-    return img_res
+    return img_res, char
 
 def segment_characters(image):
     # Your existing code for character segmentation goes here.
@@ -92,6 +92,6 @@ def segment_characters(image):
     cv2.imwrite('contour.jpg',img_binary_lp)
 
     # Get contours within cropped license plate
-    char_list = find_contours(dimensions, img_binary_lp)
+    char_list, char= find_contours(dimensions, img_binary_lp)
 
     return char_list
